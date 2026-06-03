@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title >كلنا مسؤولون ة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #e0ece0 0%, #c2dbc2 100%);
+            font-family: 'Segoe UI', 'Poppins', 'Tajawal', system-ui, sans-serif;
+            padding: 24px 16px 48px;
+            min-height: 100vh;
+        }
+
+        .prestige-container {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .hero-prestige {
+            background: #0a2b1e;
+            border-radius: 48px 48px 48px 32px;
+            padding: 32px 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.35);
+            border-bottom: 3px solid #cbaa5e;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-prestige::before {
+            content: "⚜️";
+            font-size: 100px;
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+        .official-stamp {
+            background: rgba(203, 170, 94, 0.18);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #f5e5c4;
+            backdrop-filter: blur(2px);
+            margin-bottom: 20px;
+        }
+        .site-name {
+            font-size: 44px;
+            font-weight: 900;
+            color: white;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+        .site-name span {
+            color: #efcd83;
+            border-bottom: 2px solid #efcd83;
+            display: inline-block;
+            padding-bottom: 2px;
+        }
+        .motto {
+            font-size: 14px;
+            color: #d1e6d9;
+            margin-top: 16px;
+            border-top: 1px solid rgba(239,205,131,0.3);
+            display: inline-block;
+            padding-top: 14px;
+        }
+
+        .elegant-card {
+            background: rgba(255,255,255,0.98);
+            border-radius: 40px;
+            padding: 30px 24px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.15);
+            border: 1px solid #e8f0e3;
+        }
+
+        .form-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 28px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e3efdb;
+        }
+        .form-header span:first-child {
+            background: #0a2b1e;
+            color: white;
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        .form-header h3 {
+            font-size: 20px;
+            color: #1f4735;
+            font-weight: 800;
+        }
+
+        .upload-zone {
+            background: #f9fdf7;
+            border: 1.8px dashed #7eaa75;
+            border-radius: 28px;
+            padding: 22px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.25s;
+            margin-bottom: 28px;
+        }
+        .upload-zone:active { transform: scale(0.98); background: #f0f7eb; }
+        .camera-icon-lg {
+            font-size: 48px;
+            background: #eef4e9;
+            width: 80px;
+            height: 80px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 60px;
+            margin-bottom: 12px;
+        }
+        #previewImg {
+            max-width: 100%;
+            max-height: 150px;
+            border-radius: 24px;
+            margin-top: 15px;
+            display: none;
+            object-fit: cover;
+            border: 2px solid #c0ddb0;
+        }
+
+        .location-prestige {
+            background: #eef3ea;
+            border-radius: 28px;
+            padding: 12px 18px;
+            margin-bottom: 28px;
+        }
+        .loc-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-weight: 700;
+            color: #1c4d2d;
+        }
+        .get-loc-btn {
+            background: #1e4a32;
+            width: 100%;
+            border: none;
+            color: white;
+            padding: 16px;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 6px 14px rgba(30,74,50,0.3);
+        }
+        .get-loc-btn:active { transform: scale(0.97); background: #0a2f1f; }
+        .location-display {
+            background: white;
+            border-radius: 24px;
+            padding: 14px 18px;
+            margin-top: 16px;
+            border-right: 5px solid #cbaa5e;
+            font-size: 14px;
+            color: #2c5a42;
+            font-weight: 500;
+            word-break: break-word;
+            display: none;
+        }
+
+        .reason-group label {
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            color: #1f3d2c;
+        }
+        select {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 60px;
+            border: 1px solid #cfdfc5;
+            background: white;
+            font-size: 15px;
+            font-weight: 500;
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%231e4a32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+            background-repeat: no-repeat;
+            background-position: left 20px center;
+        }
+
+        .submit-btn {
+            background: #0088cc;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 18px;
+            border-radius: 60px;
+            font-size: 18px;
+            font-weight: 800;
+            margin-top: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 12px 22px -6px #0088cc80;
+        }
+        .submit-btn:active { transform: scale(0.97); background: #006699; }
+        .legal-footer {
+            text-align: center;
+            font-size: 11px;
+            color: #668a6f;
+            margin-top: 28px;
+            border-top: 1px solid #e2eade;
+            padding-top: 18px;
+        }
+    </style>
+</head>
+<body>
+<div class="prestige-container">
+    <div class="hero-prestige">
+        <div class="official-stamp">🛡️ منصة التبليغات الموحدة</div>
+        <div class="site-name">كُلنا <span>مَسؤولون</span></div>
+        <div class="motto">"بالتبليغ تتحقق الوقاية .. وطن بلا خوف"</div>
+    </div>
+
+    <div class="elegant-card">
+        <div class="form-header">
+            <span>١</span>
+            <h3>إرفاق الدليل (صورة)</h3>
+        </div>
+        <div class="upload-zone" id="uploadArea">
+            <div class="camera-icon-lg">📸</div>
+            <div style="font-size: 14px; color:#3f684b;">إضغط لإلتقاط صورة أو رفعها</div>
+            <input type="file" id="imageInput" accept="image/*" capture="environment" style="display: none;">
+            <img id="previewImg" alt="معاينة">
+        </div>
+
+        <div class="location-prestige">
+            <div class="loc-header"><span>📍</span> تحديد الموقع الجغرافي بدقة</div>
+            <button class="get-loc-btn" id="getLocationBtn">🌍 خذ موقعي الحالي (خريطة)</button>
+            <div class="location-display" id="locationDisplay">
+                <span>الموقع المُحدد:</span> <span id="locValue">---</span>
+            </div>
+        </div>
+
+        <div class="reason-group">
+            <label>⚠️ سبب الإبلاغ</label>
+            <select id="reasonSelect">
+                <option value="مخدرات - مواد ممنوعة">🚫 مخدرات / مواد ممنوعة</option>
+                <option value="سرقة أو نهب">💰 سرقة أو نهب ممتلكات</option>
+                <option value="تحرش أو اعتداء">🙅 تحرش / اعتداء</option>
+                <option value="إزعاج عام مفرط">🔊 إزعاج وضوضاء مؤثرة</option>
+                <option value="مشكلة مرورية خطيرة">🚗 مشكلة مرورية خطيرة</option>
+                <option value="أخرى - فساد أو تقصير">📌 أخرى</option>
+            </select>
+        </div>
+
+        <button class="submit-btn" id="sendBtn">📢 إرسال البلاغ (صورة + خريطة)</button>
+        <div class="legal-footer">🛡️ سيتم إرسال الصورة والموقع كخريطة تفاعلية للمسؤول عبر تيليغرام</div>
+    </div>
+</div>
+
+<script>
+    // ========== إعدادات تيليغرام ==========
+    // ⚠️ ضع التوكن الذي حصلت عليه من @BotFather
+    const BOT_TOKEN = "8850501029:AAE5WwjBoHF_i15KJ8OmcFW6z3g5XfR1Nd0";
+    // ⚠️ ضع معرف المسؤول (Chat ID) - يمكن أن يكون فرداً أو مجموعة
+    const ADMIN_CHAT_ID = "6695614677";
+    // ======================================
+
+    let selectedImageFile = null;
+    let currentLat = null;
+    let currentLng = null;
+    let currentAddress = "";
+
+    // عناصر DOM
+    const uploadArea = document.getElementById('uploadArea');
+    const imageInput = document.getElementById('imageInput');
+    const previewImg = document.getElementById('previewImg');
+    const getLocationBtn = document.getElementById('getLocationBtn');
+    const locationDisplay = document.getElementById('locationDisplay');
+    const locValueSpan = document.getElementById('locValue');
+    const reasonSelect = document.getElementById('reasonSelect');
+    const sendBtn = document.getElementById('sendBtn');
+
+    // 1. معاينة الصورة
+    uploadArea.addEventListener('click', () => imageInput.click());
+    imageInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        selectedImageFile = file;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+            previewImg.src = ev.target.result;
+            previewImg.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+    });
+
+    // 2. جلب الموقع وحفظ الإحداثيات والعنوان النصي
+    getLocationBtn.addEventListener('click', () => {
+        if (!navigator.geolocation) {
+            alert("المتصفح لا يدعم تحديد الموقع الجغرافي.");
+            return;
+        }
+        getLocationBtn.disabled = true;
+        getLocationBtn.innerHTML = "⏳ جاري تحديد الموقع ...";
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                currentLat = position.coords.latitude;
+                currentLng = position.coords.longitude;
+                try {
+                    const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${currentLat}&lon=${currentLng}&accept-language=ar`);
+                    const data = await res.json();
+                    let address = data.display_name || "";
+                    if (address.length > 90) address = address.substring(0, 90);
+                    currentAddress = address;
+                    locValueSpan.innerText = `${address} (${currentLat.toFixed(5)}, ${currentLng.toFixed(5)})`;
+                    locationDisplay.style.display = "block";
+                } catch (err) {
+                    currentAddress = `الإحداثيات: ${currentLat.toFixed(5)}, ${currentLng.toFixed(5)}`;
+                    locValueSpan.innerText = currentAddress;
+                    locationDisplay.style.display = "block";
+                }
+                getLocationBtn.disabled = false;
+                getLocationBtn.innerHTML = "🌍 خذ موقعي الحالي (خريطة)";
+            },
+            (error) => {
+                alert("تعذر الحصول على الموقع: " + error.message);
+                getLocationBtn.disabled = false;
+                getLocationBtn.innerHTML = "🌍 خذ موقعي الحالي (خريطة)";
+            }
+        );
+    });
+
+    // 3. إرسال الصورة + النص إلى تيليغرام
+    async function sendPhotoWithCaption() {
+        if (!selectedImageFile) return true; // لا صورة، لا نرسل شيئاً
+        const reason = reasonSelect.value;
+        const now = new Date();
+        const timeStr = now.toLocaleString('ar-SA', { hour12: true });
+        const caption = `🚨 *بلاغ رسمي - منصة كلنا مسؤولين* 🚨\n\n⚠️ *السبب:* ${reason}\n📅 *الوقت:* ${timeStr}\n📍 *العنوان التقريبي:* ${currentAddress || "غير محدد"}\n🗺️ *سيتم إرسال الموقع كخريطة منفصلة*`;
+        
+        const formData = new FormData();
+        formData.append('chat_id', ADMIN_CHAT_ID);
+        formData.append('photo', selectedImageFile);
+        formData.append('caption', caption);
+        formData.append('parse_mode', 'Markdown');
+        
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`;
+        try {
+            const response = await fetch(url, { method: 'POST', body: formData });
+            const data = await response.json();
+            return data.ok === true;
+        } catch (err) {
+            console.error(err);
+            return false;
+        }
+    }
+
+    // 4. إرسال الموقع كخريطة
+    async function sendLocationMap() {
+        if (currentLat === null || currentLng === null) return false;
+        const formData = new FormData();
+        formData.append('chat_id', ADMIN_CHAT_ID);
+        formData.append('latitude', currentLat);
+        formData.append('longitude', currentLng);
+        
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendLocation`;
+        try {
+            const response = await fetch(url, { method: 'POST', body: formData });
+            const data = await response.json();
+            return data.ok === true;
+        } catch (err) {
+            console.error(err);
+            return false;
+        }
+    }
+
+    // 5. إرسال رسالة نصية فقط (في حال عدم وجود صورة ولا موقع - لن يحدث)
+    async function sendTextOnly() {
+        const reason = reasonSelect.value;
+        const now = new Date();
+        const timeStr = now.toLocaleString('ar-SA', { hour12: true });
+        const text = `🚨 *بلاغ رسمي - منصة كلنا مسؤولين* 🚨\n\n⚠️ *السبب:* ${reason}\n📅 *الوقت:* ${timeStr}\n📍 *الموقع:* ${currentAddress || "غير محدد"}\n🗺️ *الخريطة مرفقة في رسالة منفصلة*`;
+        const formData = new FormData();
+        formData.append('chat_id', ADMIN_CHAT_ID);
+        formData.append('text', text);
+        formData.append('parse_mode', 'Markdown');
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+        try {
+            const response = await fetch(url, { method: 'POST', body: formData });
+            const data = await response.json();
+            return data.ok === true;
+        } catch (err) {
+            return false;
+        }
+    }
+
+    // 6. زر الإرسال الرئيسي
+    sendBtn.addEventListener('click', async () => {
+        if (currentLat === null || currentLng === null) {
+            alert("❌ يرجى الضغط على 'خذ موقعي الحالي' أولاً (الخريطة ضرورية).");
+            return;
+        }
+        sendBtn.disabled = true;
+        sendBtn.innerHTML = "⏳ جاري الإرسال إلى تيليغرام...";
+        
+        let success = false;
+        // إرسال الصورة إن وجدت
+        if (selectedImageFile) {
+            success = await sendPhotoWithCaption();
+        } else {
+            success = await sendTextOnly();
+        }
+        // إرسال الخريطة (منفصلة)
+        const locationSuccess = await sendLocationMap();
+        
+        if (success && locationSuccess) {
+            alert("✅ تم إرسال البلاغ بنجاح (صورة + خريطة) إلى المسؤول.");
+            // إعادة تعيين النموذج
+            locationDisplay.style.display = "none";
+            previewImg.style.display = "none";
+            imageInput.value = "";
+            selectedImageFile = null;
+            currentLat = null;
+            currentLng = null;
+            currentAddress = "";
+        } else {
+            alert("❌ فشل جزئي أو كامل في الإرسال. تأكد من التوكن ومعرف المسؤول.");
+        }
+        sendBtn.disabled = false;
+        sendBtn.innerHTML = "📢 إرسال البلاغ (صورة + خريطة)";
+    });
+</script>
+</body>
+</html>
