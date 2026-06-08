@@ -211,7 +211,7 @@
         }
 
         .submit-btn {
-            background: #0088cc;
+            background: #1e4a32;
             color: white;
             border: none;
             width: 100%;
@@ -270,8 +270,9 @@
         <div class="reason-group">
             <label> سبب الإبلاغ</label>
             <select id="reasonSelect">
-                <option value="مخدرات - مواد ممنوعة">🚫 مخدرات / مواد ممنوعة</option>
                 <option value="سرقة أو نهب">💰 سرقة أو نهب ممتلكات</option>
+                <option value="مخدرات - مواد ممنوعة">🚫 مخدرات / مواد ممنوعة</option>
+                
                 <option value="تحرش أو اعتداء">🙅 تحرش / اعتداء</option>
                 <option value="إزعاج عام مفرط">🔊 إزعاج وضوضاء مؤثرة</option>
                 <option value="مشكلة مرورية خطيرة">🚗 مشكلة مرورية خطيرة</option>
@@ -280,7 +281,7 @@
         </div>
 
         <button class="submit-btn" id="sendBtn"> إرسال البلاغ </button>
-        <div class="legal-footer"> سيتم إرسال البلاغ للمسؤول عبر تيليغرام</div>
+        <div class="legal-footer"> سيتم إرسال البلاغ للمسؤول </div>
     </div>
 </div>
 
@@ -428,7 +429,7 @@
             return;
         }
         sendBtn.disabled = true;
-        sendBtn.innerHTML = "⏳ جاري الإرسال إلى تيليغرام...";
+        sendBtn.innerHTML = "⏳ جاري الإرسال ...";
         
         let success = false;
         // إرسال الصورة إن وجدت
